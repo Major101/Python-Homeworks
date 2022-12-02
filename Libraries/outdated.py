@@ -5,7 +5,7 @@ monthes = [
     "April",
     "May",
     "June",
-    "July",
+    "July", 
     "August",
     "September",
     "October",
@@ -13,8 +13,11 @@ monthes = [
     "December"
 ]
 
+def main():
+    display_date()
+
 def checkday(day):
-    if int(d)<=31:
+    if int(day.strip(','))<=31:
         return True
 
 def checkmonth(month):
@@ -24,25 +27,22 @@ def checkmonth(month):
     
     return month in monthes
 
-while True:
-    date = input('Date: ')
+def display_date():
+    while True:
+        date = input('Date: ')
 
-    if '/' in date:
-        m,d,y = date.split('/')
-    else:
-        m,d,y = date.split(' ')
-
-    if checkday(d) and checkmonth(m):
-        if m.isalpha():
-            print(f'{y}' +
-            f'-{(int(monthes.index(m))+1):02}-{int(d[0]):02}')
+        if '/' in date:
+            m,d,y = date.split('/')
         else:
-            print(f'{y}-{int(m):02}-{int(d):02}')
+            m,d,y = date.split(' ')
 
-        break
+        if checkday(d) and checkmonth(m):
+            if m.isalpha():
+                print(f'{y}' +
+                f'-{(int(monthes.index(m))+1):02}-{int(d[0]):03}')
+            else:
+                print(f'{y}-{int(m):02}-{int(d):02}')
 
+            break
 
-
-
-
-
+main()
