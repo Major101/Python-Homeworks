@@ -8,4 +8,3 @@ def divisibleSumPairs(n, k, ar):
                 pairC += 1
     
     return pairC
-    
